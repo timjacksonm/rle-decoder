@@ -1,4 +1,4 @@
 module.exports = {
-  fsparse: require('./fileparse'),
+  fileParse: require('./fileparse'),
   decode: require('./decode'),
 };
