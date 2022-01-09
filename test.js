@@ -10,11 +10,9 @@ test('parse rle file to javascript object', () => {
 
 test('decode rle string into array of arrays', () => {
   const { rleString, size } = { size: { x: 3, y: 3 }, rleString: 'bo$2bo$3o!' };
-  expect(
-    decode(rleString, size).toEqual([
-      [0, 1, 0],
-      [0, 0, 1],
-      [1, 1, 1],
-    ])
-  );
+  expect(decode(rleString, size)).toEqual([
+    [0, 1, 0],
+    [0, 0, 1],
+    [1, 1, 1],
+  ]);
 });
