@@ -1,2 +1,4 @@
-const fsparse = require('./fileparse');
-const decode = require('./decode');
+module.exports = {
+  fsparse: require('./fileparse'),
+  decode: require('./decode'),
+};

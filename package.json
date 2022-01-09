@@ -4,7 +4,7 @@
   "description": "dle-decoder used to parse data specifically for conway's game of life patterns that are inside of an .rle file using the rule = B3/S23",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
