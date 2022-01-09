@@ -1,5 +1,2 @@
-function decode() {
-  //
-}
-
-module.exports = decode;
+const fsparse = require('./fileparse');
+const decode = require('./decode');

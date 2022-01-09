@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/timjacksonm/rle-decoder/issues"
   },
-  "homepage": "https://github.com/timjacksonm/rle-decoder#readme"
+  "homepage": "https://github.com/timjacksonm/rle-decoder#readme",
+  "devDependencies": {
+    "jest": "^27.4.7"
+  }
 }
