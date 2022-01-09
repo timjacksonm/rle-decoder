@@ -1,0 +1,19 @@
+{
+  "name": "rle-decoder",
+  "version": "0.0.1",
+  "description": "dle-decoder used to parse data specifically for conway's game of life patterns that are inside of an .rle file using the rule = B3/S23",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timjacksonm/rle-decoder.git"
+  },
+  "author": "Timothy Jackson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/timjacksonm/rle-decoder/issues"
+  },
+  "homepage": "https://github.com/timjacksonm/rle-decoder#readme"
+}
