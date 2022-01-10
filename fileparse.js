@@ -12,37 +12,46 @@ function fileParse(path) {
       rleString: [],
     };
 
-    //check for description strings and push to array
-    array.forEach((row, index) => {
-      if (row.includes('#C')) {
-        const stringArray = row.split(' ');
-        stringArray.shift();
-        templateArray['description'].push(stringArray.join(' '));
-        array.splice(index, 1);
-      }
+    //Pull #O line from array. add too template as author
+
+    //Check for description strings and push to array.
+    const strings = array.filter((line) => line.includes('#C'));
+    strings.forEach((string) => {
+      const stringArray = string.split(' ');
+      stringArray.shift();
+      //Join arrays and remove line breaks.
+      const newString = stringArray.join(' ').replace(/(\r\n|\n|\r)/gm, '');
+      templateArray['description'].push(newString);
     });
 
-    //use line with x and y values. trim and convert to object key value pair with number type
-    array.forEach((row, index) => {
-      if (row.includes('x = ') && row.includes('y = ')) {
-        let object = row.replace(/\s/g, '').split(',');
-        object = object.map((string) =>
-          Object.fromEntries(new URLSearchParams(string).entries())
-        );
-        object = { ...object[0], ...object[1] };
-        Object.keys(object).forEach(
-          (key) => (object[key] = Number(object[key]))
-        );
-        templateArray.size = object;
-        array.splice(index, 1);
-      }
+    //Use line with x and y values. Trim and convert to object key value pair with number type.
+    const sizesData = array.filter(
+      (line) => line.includes('x = ') && line.includes('y = ')
+    );
+    sizesData.forEach((string) => {
+      let data = string.replace(/\s/g, '').split(',');
+      data = data.map((string) =>
+        Object.fromEntries(new URLSearchParams(string).entries())
+      );
+      data = { ...data[0], ...data[1] };
+      Object.keys(data).forEach((key) => (data[key] = Number(data[key])));
+      templateArray.size = data;
     });
 
-    //add rle string to template
-    if (array.length === 1) {
-      templateArray.rleString = array[0];
-      array.splice(0, 1);
-    }
+    //Find all rle strings. Join them and remove line breaks. Than add rle string to template.
+    const rleArray = array.filter((string) => {
+      if (
+        string.includes('#') ||
+        string.includes('x = ') ||
+        string.includes('y = ')
+      ) {
+        return;
+      } else {
+        return string;
+      }
+    });
+    console.log(templateArray);
+    templateArray.rleString = rleArray.join('').replace(/(\r\n|\n|\r)/gm, '');
     return templateArray;
   } catch (error) {
     console.error(error);
