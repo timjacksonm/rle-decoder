@@ -7,22 +7,34 @@ function fileParse(path) {
     const array = data.toString().split('\n');
 
     let templateArray = {
+      author: '',
       description: [],
       size: { x: null, y: null },
       rleString: [],
     };
 
-    //Pull #O line from array. add too template as author
+    //Check for #O author line. add too template.
+    const author = array.filter((line) => line.includes('#O'));
+    if (author.length) {
+      author.forEach((string) => {
+        const stringArray = string.split(' ');
+        stringArray.shift();
+        const newString = stringArray.join(' ').replace(/(\r\n|\n|\r)/gm, '');
+        templateArray.author = newString;
+      });
+    }
 
-    //Check for description strings and push to array.
+    //Check for #C description strings and push to array.
     const strings = array.filter((line) => line.includes('#C'));
-    strings.forEach((string) => {
-      const stringArray = string.split(' ');
-      stringArray.shift();
-      //Join arrays and remove line breaks.
-      const newString = stringArray.join(' ').replace(/(\r\n|\n|\r)/gm, '');
-      templateArray['description'].push(newString);
-    });
+    if (strings.length) {
+      strings.forEach((string) => {
+        const stringArray = string.split(' ');
+        stringArray.shift();
+        //Join arrays and remove line breaks.
+        const newString = stringArray.join(' ').replace(/(\r\n|\n|\r)/gm, '');
+        templateArray['description'].push(newString);
+      });
+    }
 
     //Use line with x and y values. Trim and convert to object key value pair with number type.
     const sizesData = array.filter(
@@ -50,8 +62,9 @@ function fileParse(path) {
         return string;
       }
     });
-    console.log(templateArray);
-    templateArray.rleString = rleArray.join('').replace(/(\r\n|\n|\r)/gm, '');
+    if (rleArray.length) {
+      templateArray.rleString = rleArray.join('').replace(/(\r\n|\n|\r)/gm, '');
+    }
     return templateArray;
   } catch (error) {
     console.error(error);

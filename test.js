@@ -2,13 +2,29 @@ const { fileParse, decode } = require('./index.js');
 
 test('parse rle file to javascript object', () => {
   expect(fileParse('./file.rle')).toEqual({
+    author: '',
     description: ['This is a glider.'],
     size: { x: 3, y: 3 },
     rleString: 'bo$2bo$3o!',
   });
 });
+
+test('parse rle file to javascript object', () => {
+  expect(fileParse('./average.rle')).toEqual({
+    author: 'David Buckingham',
+    description: [
+      'A period 5 oscillator in which the average number of live rotor cells is five (V), which is also the period.',
+      'www.conwaylife.com/wiki/index.php?title=AVerage',
+    ],
+    size: { x: 13, y: 11 },
+    rleString:
+      '3b2o8b$4b3o6b$2bo4bo5b$bob4obo4b$bobo4bo2bob$2ob3o2bobobo$bobo4bo2bob$bob4obo4b$2bo4bo5b$4b3o6b$3b2o!',
+  });
+});
+
 test('parse rle file to javascript object', () => {
   expect(fileParse('./60p72.rle')).toEqual({
+    author: '',
     description: [
       'https://conwaylife.com/wiki/Two_blockers_hassling_R-pentomino',
       'https://conwaylife.com/patterns/60p72.rle',
