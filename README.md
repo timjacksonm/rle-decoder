@@ -1,6 +1,6 @@
 # rle-decoder
 
-Decode rle strings or parse an entire .rle file into a JavaScript object.
+Decode Run-length encoding strings or parse an entire .rle file into a JavaScript object.
 
 ## Installing
 
@@ -10,10 +10,10 @@ npm install rle-decoder
 
 ## CLI Usage:
 
-See `man touch`
-
 This package exports two functions
+
 `decode` used to decode an rle string.
+
 `fileParse` used to parse a .rle file into a readable JavaScript object.
 
 ## API Usage:
@@ -24,20 +24,29 @@ var { decode, fileParse } = require('rle-decoder');
 
 Gives you the following functions:
 
-- `decode(rlestring, gridsize)`
+```javascript
+decode(string, gridsize);
+```
+The first arguement 'string' you need to provide the rle string.
 
-\*`gridsize` requires an object in this format `{ x: num, y: num }` which is used to create the specified 2d array.
+The second arguement 'gridsize' requires an object in this format `{ x: num, y: num }`
 
-- `fileParse(filepath)`
 
-For now to parse a .rle file you need to provide the files path in your directory.
+```javascript
+fileParse(filepath);
+```
 
-All arguments are required.
+The argument 'filepath' requires the .rle file path in your directory as a string.
+
+for example `fileParse('./file.rle')`
+
+All arguments for both functions are required.
 
 ## Release
 
 -v 0.0.1
 
 This package may contain bugs and isn't fully released until version 1.0.0.
-If you would like to add to this package or help submit an issue and pull request.
+
+If you would like to add to this package please submit an issue or pull request.
 Thank you
