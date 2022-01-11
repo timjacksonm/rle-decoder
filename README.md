@@ -2,6 +2,8 @@
 
 Decode Run-length encoding strings or parse an entire .rle file into a JavaScript object.
 
+I created this package in parallel with my Conway's Game of Life project. I needed a way to read patterns in .rle files provided by The <a href="https://www.conwaylife.com/wiki/Main_Page">Life</a> Wiki.
+
 ## Installing
 
 ```bash
