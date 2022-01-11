@@ -1,6 +1,6 @@
 {
   "name": "rle-decoder",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "dle-decoder used to parse data specifically for conway's game of life patterns that are inside of an .rle file using the rule = B3/S23",
   "main": "index.js",
   "scripts": {
