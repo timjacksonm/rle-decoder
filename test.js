@@ -1,7 +1,8 @@
 const { fileParse, decode } = require('./index.js');
 
 test('parse rle file to javascript object', () => {
-  expect(fileParse('./file.rle')).toEqual({
+  expect(fileParse('./example/file.rle')).toEqual({
+    title: '',
     author: '',
     description: ['This is a glider.'],
     size: { x: 3, y: 3 },
@@ -10,7 +11,8 @@ test('parse rle file to javascript object', () => {
 });
 
 test('parse rle file to javascript object', () => {
-  expect(fileParse('./average.rle')).toEqual({
+  expect(fileParse('./example/average.rle')).toEqual({
+    title: 'aVerage',
     author: 'David Buckingham',
     description: [
       'A period 5 oscillator in which the average number of live rotor cells is five (V), which is also the period.',
@@ -23,7 +25,8 @@ test('parse rle file to javascript object', () => {
 });
 
 test('parse rle file to javascript object', () => {
-  expect(fileParse('./60p72.rle')).toEqual({
+  expect(fileParse('./example/60p72.rle')).toEqual({
+    title: '60p72.rle',
     author: '',
     description: [
       'https://conwaylife.com/wiki/Two_blockers_hassling_R-pentomino',

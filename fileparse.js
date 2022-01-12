@@ -7,6 +7,7 @@ function fileParse(path) {
     const array = data.toString().split('\n');
 
     let templateArray = {
+      title: '',
       author: '',
       description: [],
       size: { x: null, y: null },
@@ -21,6 +22,17 @@ function fileParse(path) {
         stringArray.shift();
         const newString = stringArray.join(' ').replace(/(\r\n|\n|\r)/gm, '');
         templateArray.author = newString;
+      });
+    }
+
+    //Check for #N title line. add to template
+    const title = array.filter((line) => line.includes('#N'));
+    if (title.length) {
+      title.forEach((string) => {
+        const stringArray = string.split(' ');
+        stringArray.shift();
+        const newString = stringArray.join(' ').replace(/(\r\n|\n|\r)/gm, '');
+        templateArray.title = newString;
       });
     }
 
