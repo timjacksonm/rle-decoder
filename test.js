@@ -1,7 +1,7 @@
-const { fileParse, decode } = require('./index.js');
+const { parseFile, decode } = require('./index.js');
 
 test('parse rle file to javascript object', () => {
-  expect(fileParse('./example/file.rle')).toEqual({
+  expect(parseFile('./example/file.rle')).toEqual({
     title: '',
     author: '',
     description: ['This is a glider.'],
@@ -11,7 +11,7 @@ test('parse rle file to javascript object', () => {
 });
 
 test('parse rle file to javascript object', () => {
-  expect(fileParse('./example/average.rle')).toEqual({
+  expect(parseFile('./example/average.rle')).toEqual({
     title: 'aVerage',
     author: 'David Buckingham',
     description: [
@@ -25,7 +25,7 @@ test('parse rle file to javascript object', () => {
 });
 
 test('parse rle file to javascript object', () => {
-  expect(fileParse('./example/60p72.rle')).toEqual({
+  expect(parseFile('./example/60p72.rle')).toEqual({
     title: '60p72.rle',
     author: '',
     description: [

@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-function fileParse(path) {
+function parseFile(path) {
   try {
     const data = fs.readFileSync(path, 'utf8');
 
@@ -84,4 +84,4 @@ function fileParse(path) {
   }
 }
 
-module.exports = fileParse;
+module.exports = parseFile;

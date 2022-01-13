@@ -1,4 +1,4 @@
 module.exports = {
-  fileParse: require('./fileparse'),
+  parseFile: require('./parsefile'),
   decode: require('./decode'),
 };
