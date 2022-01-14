@@ -64,9 +64,7 @@ All arguments for both functions are required.
 
 ## Release
 
--v 0.0.1
-
-This package may contain bugs and isn't fully released until version 1.0.0.
+-v 1.0.0 first release version with updated readme.
 
 If you would like to add to this package please submit an issue or pull request.
 Thank you
